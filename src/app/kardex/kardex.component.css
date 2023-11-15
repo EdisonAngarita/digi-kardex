@@ -1,0 +1,82 @@
+.example-card {
+  width: 50%;
+  max-width: 400px;
+  margin-bottom: 8px;
+}
+
+.div-info-paciente {
+  padding: 2% 10% 2% 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-justify-rigth {
+  display: flex;
+  justify-content: right;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.div-content-card {
+  display: flex;
+}
+
+.imgRedonda {
+  width: 150px;
+  height: 100px;
+}
+
+.image-div-stile {
+  padding: 10%;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field+.mat-form-field {
+  margin-left: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-table-div {
+  padding: 5% 5% 1% 5%;
+}
+
+.example-container {
+  height: 270px;
+  overflow: auto;
+}
+
+th {
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 980px) {
+  .div-content-card {
+    display: block;
+  }
+
+  .example-card {
+    width: 100%;    
+    margin-bottom: 8px;
+  }
+
+  .image-div-stile {
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+  }
+}

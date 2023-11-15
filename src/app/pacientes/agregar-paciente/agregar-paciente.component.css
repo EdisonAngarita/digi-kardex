@@ -1,0 +1,65 @@
+.example-card {
+    width: 50%;
+    max-width: 400px;
+    margin-bottom: 8px;
+}
+
+.div-add-patient {
+    padding: 2% 10% 2% 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.div-justify-rigth {
+    display: flex;
+    justify-content: right;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.add-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.inputs-fields {
+    width: 49%;
+    padding-right: 1%;
+}
+
+.date-fields{
+    width: 32%;
+    padding-right: 1%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+mat-form-field{
+    width: 100%;
+}
+@media only screen and (max-width: 700px) {
+   
+    .inputs-fields{
+        width: 100%;
+        padding-right: 1%;
+    }
+
+    .date-fields{
+        width: 100%;
+        padding-right: 1%;
+    }
+    
+}
+
+@media only screen and (max-width: 980px) {
+    .mat-expansion-panel-body {
+        padding: 0% !important;
+    }
+
+   
+    
+}

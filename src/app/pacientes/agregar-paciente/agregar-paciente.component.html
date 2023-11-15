@@ -1,0 +1,105 @@
+<form #f="ngForm" (ngSubmit)="guardarPaciente(f)">
+
+    <h1 mat-dialog-title class="justify-center">Agregar Paciente</h1>
+
+    <mat-dialog-content>
+        <section fxLayoutAling="center" class="add-section">
+            <mat-card>
+                <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <mat-form-field  appearance="fill" class="inputs-fields">
+                        <mat-label>Nombre</mat-label>
+                        <input type="text" matInput placeholder="ejem. Maria Fonseca" name="name" ngModel
+                            required />
+                        <mat-error>Debe ingresar el nombre del paciente</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field  appearance="fill" class="inputs-fields">
+                        <mat-label>Número documento</mat-label>
+                        <input type="text" matInput placeholder="ejem. 1197914897"
+                            name="numberIdentification" ngModel required />
+                        <mat-error>Debe ingresar la identificación del paciente</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field  appearance="fill" class="inputs-fields">
+                        <mat-label>Habitación</mat-label>
+                        <input type="text" matInput placeholder="ejem. H222" name="room" ngModel required />
+                        <mat-error>Debe ingresar la habitación del paciente</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field  appearance="fill" class="inputs-fields">
+                        <mat-label>Empresa</mat-label>
+                        <input type="text" matInput placeholder="ejem. Sura" name="company" ngModel
+                            required />
+                        <mat-error>Debe ingresar la empresa del paciente</mat-error>
+                    </mat-form-field>
+                    
+                    <div style="overflow: auto;">
+                        <h2>Medicamentos:</h2>
+                        <mat-accordion class="example-headers-align">
+                            <mat-expansion-panel *ngFor="let element of medications; index as i"
+                                [expanded]="step === (i)" (opened)="setStep((i))" hideToggle>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        {{element.name}}
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        Dosis: {{element.dosage}} - Vía: {{element.drugRoute}} - Frecuencia:
+                                        {{element.frequency}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-form-field appearance="fill" class="inputs-fields">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput [(ngModel)]="element.name" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="inputs-fields">
+                                    <mat-label>Dosis</mat-label>
+                                    <input matInput [(ngModel)]="element.dosage" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="inputs-fields">
+                                    <mat-label>Vía</mat-label>
+                                    <input matInput [(ngModel)]="element.drugRoute"
+                                        [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="inputs-fields">
+                                    <mat-label>Frecuencia</mat-label>
+                                    <input matInput [(ngModel)]="element.frequency"
+                                        [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="date-fields">
+                                    <mat-label>Hora mañana</mat-label>
+                                    <input matInput [(ngModel)]="element.daytimeSchedule"
+                                        [ngModelOptions]="{standalone: true}"  type="time">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="date-fields">
+                                    <mat-label>Hora tarde</mat-label>
+                                    <input matInput [(ngModel)]="element.afternoonSchedule"
+                                        [ngModelOptions]="{standalone: true}"  type="time">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="date-fields"> 
+                                    <mat-label>Hora noche</mat-label>
+                                    <input matInput [(ngModel)]="element.nigthSchedule"
+                                        [ngModelOptions]="{standalone: true}" type="time">
+                                </mat-form-field>
+                                <mat-action-row>
+                                    <button mat-button color="warn" (click)="prevStep(i)" *ngIf="i != 0"
+                                        type="button">Eliminar</button>
+                                    <button mat-button color="primary" (click)="nextStep()" type="button">Agregar</button>
+                                </mat-action-row>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </div>
+            </mat-card>
+        </section>
+    </mat-dialog-content>
+    <mat-dialog-actions class="div-justify-rigth">
+        <button mat-button [mat-dialog-close]="true">Cerrar</button>
+        <button mat-button type="submit">Guardar</button>
+    </mat-dialog-actions>
+</form>

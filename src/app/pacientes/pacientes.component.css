@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+  }
+.mat-table-div  {
+    padding: 5% 5% 1% 5%;
+}
+
+.div-title{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  font-size: 35px;
+}
+
+th {
+  font-size: 15px;
+}
+
+.div-search-field{
+  display: flex;
+  justify-content: right;
+}
+
+#boton-agregar{
+  right: 45px;
+  bottom: 45px;
+  left: auto;
+  position: absolute;
+}
+
+.example-container {
+  height: 100%;
+  overflow: auto;
+}

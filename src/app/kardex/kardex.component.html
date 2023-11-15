@@ -1,0 +1,80 @@
+<mat-dialog-actions class="div-justify-rigth">    
+        <button mat-button [mat-dialog-close]="true"><mat-icon>close</mat-icon></button>    
+</mat-dialog-actions>
+<h1 mat-dialog-title class="justify-center">Kardex</h1>
+
+<mat-dialog-content>
+    <div>
+        <div class="div-info-paciente">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title-group>                                    
+                    <mat-card-title>{{patient.name}}</mat-card-title>                    
+                  </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="div-content-card">
+                    <div class="image-div-stile">
+                      <img src="./assets/Icons/patient_logo.png" class='imgRedonda'>
+                    </div>
+                    <div class="justify-center">                      
+                      <p>                                       
+                        <b>Indentificación:</b> {{patient.numberIdentification}}<br>                      
+                        <b>Habitación:</b> {{patient.room}}<br>
+                        <b>Compañia:</b> {{patient.company}}
+                      </p>  
+                    </div>                    
+                  </div>                  
+                </mat-card-content>
+              </mat-card>
+        </div>
+        
+          <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+    
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de medicamento</th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="dosage">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Dosis </th>
+                <td mat-cell *matCellDef="let element"> {{element.dosage}} </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="drugRoute">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Vía </th>
+                <td mat-cell *matCellDef="let element"> {{element.drugRoute}} </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="frequency">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Frecuencia</th>
+                <td mat-cell *matCellDef="let element"> {{element.frequency}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="daytimeSchedule">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mañana </th>
+                <td mat-cell *matCellDef="let element"> {{element.daytimeSchedule}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="afternoonSchedule">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tarde </th>
+                <td mat-cell *matCellDef="let element"> {{element.afternoonSchedule}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="nigthSchedule">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Noche </th>
+                <td mat-cell *matCellDef="let element"> {{element.nigthSchedule}} </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>          
+    </div>
+</mat-dialog-content>
+
+
